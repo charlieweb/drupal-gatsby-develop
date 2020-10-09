@@ -1,0 +1,54 @@
+name: decouple
+
+recipe: drupal8
+config:
+  via: nginx
+  webroot: cms/web
+  php: '7.4'
+
+proxy:
+  nodejs:
+    - gatsby.lndo.site:8000
+  appserver_nginx:
+    - cms.lndo.site
+    - gatsbydrupal.lndo.site
+
+services:
+  appserver:
+    build:
+      - cd cms && composer install
+    run:
+      - echo "Install Drupal with drush."
+      - cms/scripts/install.sh
+  nodejs:
+    type: node
+    ssl: true
+    globals:
+      gatsby-cli: latest
+      yarn: latest
+    run:
+      - echo "Installing Gatsby with yarn."
+      - cd gatsby && yarn install
+  appserver_nginx:
+    ssl: true
+    sslExpose: true
+    type: nginx
+    build_as_root:
+      - cp /app/conf/nginx/cms.lndo.site.conf /opt/bitnami/nginx/conf/vhosts/.
+      - cp /app/conf/nginx/gatsbydrupal.lndo.site.conf /opt/bitnami/nginx/conf/vhosts/.
+
+events:
+  post-start:
+    - nodejs: echo "Building the Gatsby site from Drupal."
+    - nodejs: cd frontend && gatsby build
+    - nodejs: rm -rf gatsbydrupal/* && cp -R frontend/public/* gatsbydrupal
+
+tooling:
+  npm:
+    service: nodejs
+  node:
+    service: nodejs
+  gatsby:
+    service: nodejs
+  yarn:
+    service: nodejs
