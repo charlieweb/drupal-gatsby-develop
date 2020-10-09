@@ -8,7 +8,7 @@ config:
 
 proxy:
   nodejs:
-    - gatsby.lndo.site:8000
+    - frontend.lndo.site:8000
   appserver_nginx:
     - cms.lndo.site
     - gatsbydrupal.lndo.site
@@ -28,14 +28,14 @@ services:
       yarn: latest
     run:
       - echo "Installing Gatsby with yarn."
-      - cd gatsby && yarn install
+      - cd frontend && yarn install
   appserver_nginx:
     ssl: true
     sslExpose: true
     type: nginx
     build_as_root:
-      - cp /app/conf/nginx/cms.lndo.site.conf /opt/bitnami/nginx/conf/vhosts/.
-      - cp /app/conf/nginx/gatsbydrupal.lndo.site.conf /opt/bitnami/nginx/conf/vhosts/.
+      - cp /app/conf/nginx/cms.lndo.site.conf /opt/cms/nginx/conf/vhosts/.
+      - cp /app/conf/nginx/gatsbydrupal.lndo.site.conf /opt/cms/nginx/conf/vhosts/.
 
 events:
   post-start:
