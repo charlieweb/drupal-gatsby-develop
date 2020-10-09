@@ -14,7 +14,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-drupal',
       options: {
-        baseUrl: 'http://cms.lndo.site/',
+        baseUrl: 'http://drupal.lndo.site/',
         // Using the JSON:API module, the base URL for REST queries is
         // /jsonapi.
         apiBase: 'jsonapi',

@@ -3,29 +3,29 @@ name: decouple
 recipe: drupal8
 config:
   via: nginx
-  webroot: cms/web
+  webroot: drupal/web
   php: '7.4'
 
 proxy:
   nodejs:
     - frontend.lndo.site:8000
   appserver_nginx:
-    - cms.lndo.site
+    - drupal.lndo.site
     - gatsbydrupal.lndo.site
 
 services:
   appserver:
     build:
-      - cd cms && composer install
+      - cd drupal && composer install
     run:
       - echo "Install Drupal with drush."
-      - cms/scripts/install.sh
+      - drupal/scripts/install.sh
   nodejs:
     type: node
     ssl: true
     globals:
       gatsby-cli: latest
-      yarn: latest
+      yarn: "1.22.5"
     run:
       - echo "Installing Gatsby with yarn."
       - cd frontend && yarn install
@@ -34,8 +34,8 @@ services:
     sslExpose: true
     type: nginx
     build_as_root:
-      - cp /app/conf/nginx/cms.lndo.site.conf /opt/cms/nginx/conf/vhosts/.
-      - cp /app/conf/nginx/gatsbydrupal.lndo.site.conf /opt/cms/nginx/conf/vhosts/.
+      - cp /app/conf/nginx/drupal.lndo.site.conf /opt/bitnami/nginx/conf/vhosts/.
+      - cp /app/conf/nginx/gatsbydrupal.lndo.site.conf /opt/bitnami/nginx/conf/vhosts/.
 
 events:
   post-start:
