@@ -10,9 +10,13 @@
     "gatsby-plugin-offline": "^2.0.16",
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-plugin-sharp": "^2.6.27",
+    "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-source-drupal": "^3.0.18",
+    "gatsby-source-graphql": "^2.7.1",
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-sharp": "^2.1.8",
+    "gatsby-plugin-sass": "^2.3.12",
+    "graphql-tag": "^2.11.0",
     "prop-types": "^15.6.2",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
@@ -33,13 +37,6 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "devDependencies": {
-    "prettier": "^1.15.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://gitlab.com/benjifisher/lando-gatsby-drupal"
-  },
-  "bugs": {
-    "url": "https://gitlab.com/benjifisher/lando-gatsby-drupal/issues"
+    "prettier": "^1.19.1"
   }
 }

@@ -1,4 +1,4 @@
-# Lando Gatsby Drupal
+# Lando + Drupal + Gatsby
 
 Local development environment for Gatsby and Drupal using Lando.
 
@@ -20,6 +20,9 @@ If you are not already using Lando and
 then maybe now is a good time to try them out.
 See the installation instructions below.
 
+This is updated version of the repositorie Lando Gatsby Drupal
+https://gitlab.com/benjifisher/lando-gatsby-drupal
+
 ## Getting started
 
 Warning: these instructions are subject to change.
@@ -38,8 +41,6 @@ Warning: these instructions are subject to change.
 Head over to the
 [Lando releases](https://github.com/lando/lando/releases)
 on GitHub and download the latest package for your OS.
-
-### Download this repository
 
 
 ### Start Lando
@@ -64,10 +65,10 @@ It will
 
 In particular, you should be able to visit these pages in a web browser.
 
-- Your Drupal site: https://drupal.lgd.lndo.site/
-- Your JSON API endpoint: https://drupal.lgd.lndo.site/jsonapi
-- Your Gatsby site: https://gatsbydrupal.lgd.lndo.site/
-- Your Gatsby pages imported from Drupal: https://gatsbydrupal.lgd.lndo.site/blog/
+- Your Drupal site: https://drupal.lndo.site/
+- Your JSON API endpoint: https://drupal.lndo.site/jsonapi
+- Your Gatsby site: https://gatsbydrupal.lndo.site/
+- Your Gatsby pages imported from Drupal: https://gatsbydrupal.lndo.site/blog/
 
 Your browser will give you a warning about the site's certificate.
 If that bothers you, then you can use `http` instead of `https`.
@@ -84,50 +85,46 @@ For sample command-line output from these two commands, see
 There are two ways you can use `nodejs` to serve your site:
 
 ```
-cd gatsby
+cd frontend
 lando gatsby develop --host 0.0.0.0
 ```
 
 or
 
 ```
-cd gatsby
+cd frontend
 lando gatsby build
 lando gatsby serve --host 0.0.0.0 --port 8000
 ```
 
-That is, all `lando gatsby` commands should be run from the `gatsby/`
+That is, all `lando gatsby` commands should be run from the `frontend/`
 subdirectory of the project.
 
 Either way, you should be able to view your site at any of these URLS:
 
-- https://gatsby.lgd.lndo.site/
-- https://gatsby.lgd.lndo.site/blog/ (a list of articles imported from Drupal)
-- [https://gatsby.lgd.lndo.site/\_\_\_graphql](https://gatsby.lgd.lndo.site/___graphql)
+- https://decouple.lndo.site/
+- https://decouple.lndo.site/blog/ (a list of articles imported from Drupal)
+- [https://decouple.lndo.site/\_\_\_graphql](https://decouple.lndo.site/___graphql)
   (The GraphiQL browser)
 
 These HTTPS pages will all trigger a security warning from your browser.
 On macOS, but not Linux, you can avoid the warning by using HTTP variants.
-I have not tested on Windows.
 
 The GraphiQL browser is available only when running the Gatsby development
 server.
 
 Another feature that only works in development mode is live preview/live update.
-Edit and save an Article node in Drupal (`https://drupal.lgd.lndo.site`) and the
-corresponding page in Gatsby (`https://gatsby.lgd.lndo.site`), or the listing
+Edit and save an Article node in Drupal (`https://drupal.lndo.site`) and the
+corresponding page in Gatsby (`https://decouple.lndo.site`), or the listing
 page, will update automatically. This relies on the
 [Gatsby Live Preview & Incremental Builds](https://www.drupal.org/project/gatsby) module.
 
 Use CTRL-C in your terminal window to stop the node server.
 
-For sample command-line output, see
-[Starting Gatsby](docs/gatsby-log.md).
-
 #### Note
 
-If you want to view the updated site at https://gatsbydrupal.lgd.lndo.site
-after `lando gatsby build`, then copy the bulit site from `gatsby/public/` to
+If you want to view the updated site at https://gatsbydrupal.lndo.site
+after `lando gatsby build`, then copy the build site from `frontend/public/` to
 `gatsbydrupal/`. This is done automatically when you (re)start Lando.
 
 ### Create a Gatsby project
@@ -147,15 +144,12 @@ lando gatsby develop --host 0.0.0.0
 The first three commands create the project.
 The last command starts the Gatsby development server.
 
-For sample command-line output, see
-[Starting Gatsby](docs/gatsby-log.md).
-
 If you have multiple Gatsby sites, then only one of them can run on Port 8000,
 and that is what you will be able to see using these URLS:
 
-- https://gatsby.lgd.lndo.site/ (security warning from browser)
-- http://gatsby.lgd.lndo.site/
-- http://gatsby.lgd.lndo.site:8000/
+- https://decouple.lndo.site/ (security warning from browser)
+- http://decouple.lndo.site/
+- http://decouple.lndo.site:8000/
 
 You can also browse GraphiQL by adding `___graphql` to any of those URLs.
 

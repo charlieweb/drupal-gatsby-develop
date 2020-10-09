@@ -4,13 +4,16 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Gatsby Drupal Starter`,
-    description: `This project pulls data from a Drupal site running on http://nginx. The Drupal site should be installed with the Umami demo profile and the JSON:API module.`,
-    author: `@benjifisher`,
+    description: `This project pulls data from a Drupal site running on http://nginx. The Drupal site should be installed with the standard profile and the JSON:API module.`,
+    author: ``,
   },
   plugins: [
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
+    'gatsby-transformer-sharp',
     `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-react-svg',
     {
       resolve: 'gatsby-source-drupal',
       options: {
@@ -18,6 +21,14 @@ module.exports = {
         // Using the JSON:API module, the base URL for REST queries is
         // /jsonapi.
         apiBase: 'jsonapi',
+      },
+    },
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "Drupal",
+        fieldName: "drupal",
+        url: `http://backend.lndo.site/graphql/`
       },
     },
     {
