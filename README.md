@@ -67,8 +67,7 @@ In particular, you should be able to visit these pages in a web browser.
 
 - Your Drupal site: https://drupal.lndo.site/
 - Your JSON API endpoint: https://drupal.lndo.site/jsonapi
-- Your Gatsby site: https://gatsbydrupal.lndo.site/
-- Your Gatsby pages imported from Drupal: https://gatsbydrupal.lndo.site/blog/
+- Your Gatsby site: https://gatsbydrupal.lndo.site/ a copy of build from frontend/
 
 Your browser will give you a warning about the site's certificate.
 If that bothers you, then you can use `http` instead of `https`.
@@ -102,9 +101,9 @@ subdirectory of the project.
 
 Either way, you should be able to view your site at any of these URLS:
 
-- https://decouple.lndo.site/
-- https://decouple.lndo.site/blog/ (a list of articles imported from Drupal)
-- [https://decouple.lndo.site/\_\_\_graphql](https://decouple.lndo.site/___graphql)
+- https://frontend.lndo.site/
+- https://frontend.lndo.site/blog/ (a list of articles imported from Drupal)
+- [https://frontend.lndo.site/\_\_\_graphql](https://frontend.lndo.site/___graphql)
   (The GraphiQL browser)
 
 These HTTPS pages will all trigger a security warning from your browser.

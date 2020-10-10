@@ -24,14 +24,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-graphql",
-      options: {
-        typeName: "Drupal",
-        fieldName: "drupal",
-        url: `http://backend.lndo.site/graphql/`
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -43,8 +35,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-drupal-umami`,
-        short_name: `drupal-umami`,
+        name: `gatsby-starter-drupal`,
+        short_name: `drupal`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
@@ -52,6 +44,7 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
