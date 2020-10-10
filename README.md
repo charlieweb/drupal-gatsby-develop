@@ -114,7 +114,7 @@ server.
 
 Another feature that only works in development mode is live preview/live update.
 Edit and save an Article node in Drupal (`https://drupal.lndo.site`) and the
-corresponding page in Gatsby (`https://decouple.lndo.site`), or the listing
+corresponding page in Gatsby (`https://frontend.lndo.site`), or the listing
 page, will update automatically. This relies on the
 [Gatsby Live Preview & Incremental Builds](https://www.drupal.org/project/gatsby) module.
 
@@ -146,9 +146,9 @@ The last command starts the Gatsby development server.
 If you have multiple Gatsby sites, then only one of them can run on Port 8000,
 and that is what you will be able to see using these URLS:
 
-- https://decouple.lndo.site/ (security warning from browser)
-- http://decouple.lndo.site/
-- http://decouple.lndo.site:8000/
+- https://frontend.lndo.site/ (security warning from browser)
+- http://frontend.lndo.site/
+- http://frontend.lndo.site:8000/
 
 You can also browse GraphiQL by adding `___graphql` to any of those URLs.
 
