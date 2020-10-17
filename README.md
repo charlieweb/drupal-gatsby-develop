@@ -57,7 +57,7 @@ It will
 - Install PHP packages with `composer`.
 - Install the Gatsby CLI tool.
 - Install `yarn` (with `npm`).
-- Install Drupal with the Umami demo profile.
+- Install Drupal with the Standard profile.
 - Install a Gatsby project pulling data from the Drupal site.
 - Build the Gatsby project.
 - Move the Gatsby site to `gatsbydrupal/`.
@@ -74,10 +74,6 @@ If that bothers you, then you can use `http` instead of `https`.
 
 The second command gives more information about the configured containers.
 
-For sample command-line output from these two commands, see
-[Start Lando](docs/lando-start-log.md).
-
-## Other ways to explore
 
 ### Build and run your Gatsby project
 
@@ -102,7 +98,6 @@ subdirectory of the project.
 Either way, you should be able to view your site at any of these URLS:
 
 - https://frontend.lndo.site/
-- https://frontend.lndo.site/blog/ (a list of articles imported from Drupal)
 - [https://frontend.lndo.site/\_\_\_graphql](https://frontend.lndo.site/___graphql)
   (The GraphiQL browser)
 
@@ -151,5 +146,3 @@ and that is what you will be able to see using these URLS:
 - http://frontend.lndo.site:8000/
 
 You can also browse GraphiQL by adding `___graphql` to any of those URLs.
-
-Use CTRL-C in your terminal window to stop the node server.
